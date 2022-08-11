@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv"
 import AuthRouter from "./Routes/AuthRoutes.js"
+import UserRoute from "./Routes/UserRoute.js"
+import PostRoute from "./Routes/PostRoutes.js"
 ///////routers
 
 
@@ -15,14 +17,18 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 
 //usege of Roters
-app.use("/auth",AuthRouter)
+app.use("/auth", AuthRouter)
+app.use("/user", UserRoute)
+app.use("/post", PostRoute)
 
-mongoose.connect(process.env.MONGO_DB).then(()=>
-app.listen(process.env.PORT,()=>
 
-console.log(`listening port ${process.env.PORT}`))).catch((err)=>{
-    console.log(err)
-})
+
+mongoose.connect(process.env.MONGO_DB).then(() =>
+    app.listen(process.env.PORT, () =>
+
+        console.log(`listening port ${process.env.PORT}`))).catch((err) => {
+            console.log(err)
+        })
 
 
 
