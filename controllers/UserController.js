@@ -6,7 +6,6 @@ import bcrypt from "bcrypt"
 
 export const getUser = async (req, res) => {
     const id = req.params.id
-
     try {
         const user = await UserModel.findById(id);
         if (user) {
@@ -22,12 +21,9 @@ export const getUser = async (req, res) => {
 }
 
 ///update a user
-
 export const updateUser = async (req, res) => {
     const id = req.params.id
-
     const { currentUserId, currentUserAdminStatus, password } = req.body
-
     if (id === currentUserId || currentUserAdminStatus) {
         try {
             if (password) {
