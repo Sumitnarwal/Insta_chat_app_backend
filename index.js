@@ -10,6 +10,9 @@ import AuthRouter from "./Routes/AuthRoutes.js"
 import UserRoute from "./Routes/UserRoute.js"
 import PostRoute from "./Routes/PostRoutes.js"
 import UploadRoute from "./Routes/UploadRote.js"
+import ChatRoute from "./Routes/ChatRouter.js"
+import MessageRoutes from "./Routes/MessageRouter.js"
+
 ///////routers
 
 
@@ -29,6 +32,8 @@ app.use("/auth", AuthRouter)
 app.use("/user", UserRoute)
 app.use("/posts", PostRoute)
 app.use("/upload", UploadRoute)
+app.use("/chat",ChatRoute)
+app.use("/message",MessageRoutes)
 
 
 mongoose.connect(process.env.MONGO_DB).then(() =>

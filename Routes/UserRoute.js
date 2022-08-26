@@ -6,9 +6,7 @@ import { deleteUser, followUser, getAllUser, getUser, UnFollowUser, updateUser }
 import authMiddleWare from "../MiddleWare/authMiddleWare";
 const router = Express.Router();
 
-router.get("/", async (req, res) => {
-    res.send("user route")
-})
+
 router.get("/", getAllUser)
 router.get("/:id", getUser)
 router.put("/:id", authMiddleWare,updateUser)

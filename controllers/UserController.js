@@ -6,10 +6,10 @@ import jwt from "jsonwebtoken";
 
 // Get all users
 export const getAllUser = async (req, res) => {
-    console.log("aaa")
+   
     try {
         let users = await UserModel.find();
-        console.log(users)
+     //   console.log(users)
         users = users.map((user)=>{
             const {password, ...otherDetails} = user._doc
             return otherDetails
