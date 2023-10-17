@@ -13,10 +13,10 @@ const MessageSchema = new mongoose.Schema({
         type: String
     }
 },
-    {
-        timesTamps: true,
-    })
+    {  timestamps: true,
+        versionKey: false, }
+)
 
 const MessageModel = mongoose.model("Message", MessageSchema)
 
-export default MessageModel
+export default MessageModel;

@@ -7,7 +7,8 @@ const postSchema = mongoose.Schema({
     image: String
 },
     {
-        timestamps: true
+        timestamps: true,
+        versionKey: false,
     }
 )
 

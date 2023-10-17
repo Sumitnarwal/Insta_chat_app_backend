@@ -21,26 +21,29 @@ dotenv.config()
 const PORT = process.env.PORT;
 //////////to serve images for public
 app.use(express.static("public"))
-app.use("/images",express.static("images"))
+app.use("/images", express.static("images"))
 ////////////middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors())
 
-//usege of Roters
+//usege of Routes
 app.use("/auth", AuthRouter)
 app.use("/user", UserRoute)
 app.use("/posts", PostRoute)
 app.use("/upload", UploadRoute)
-app.use("/chat",ChatRoute)
-app.use("/message",MessageRoutes)
+app.use("/chat", ChatRoute)
+app.use("/message", MessageRoutes)
 
 
-mongoose.connect(process.env.MONGO_DB).then(() =>
+mongoose.connect(process.env.MONGO_DB)
+.then(() =>
     app.listen(process.env.PORT, () =>
-
-        console.log(`listening port ${process.env.PORT}`))).catch((err) => {
+        console.log("start"),
+        console.log(`listening port ${process.env.PORT}`)))
+        .catch((err) => {
             console.log(err)
+
         })
 
 

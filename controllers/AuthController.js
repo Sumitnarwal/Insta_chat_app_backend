@@ -3,6 +3,10 @@
 import UserModel from "../Models/userModels";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken";
+
+
+///register
+
 const registerUser = async (req, res) => {
     // const { username, password, firstname, lastname } = req.body;
 
@@ -29,17 +33,14 @@ const registerUser = async (req, res) => {
     }
 }
 
-export default registerUser
+export default registerUser;
 
 ///login User
-
-
 
 export const loginUser = async (req, res) => {
     const { username, password } = req.body
     try {
         const user = await UserModel.findOne({ username: username })
-
         if (user) {
             const validity = await bcrypt.compare(password, user.password)
             if (!validity) {
